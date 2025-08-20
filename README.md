@@ -1,7 +1,7 @@
 <h1>Predicting MBTI Personality Types from Spotify Playlists</h1>
 
 <h2>Description</h2>
-This project applies <b>machine learning</b> to predict <b>MBTI personality types</b> using audio features from Spotify playlists. The dataset includes ~4,000 playlists and 49 predictors, such as <b>danceability, energy, valence, and instrumentalness</b>.
+This was a final project for a machine learning course, where I got to choose to use what I learned in the course for anything. Therefore, this project applies <b>machine learning</b> to predict <b>MBTI personality types</b> using audio features from Spotify playlists. The dataset includes ~4,000 playlists and 49 predictors, such as <b>danceability, energy, valence, and instrumentalness</b>.
 
 The goal is to explore whether music preferences can serve as indicators of personality and to compare different ML approaches for multiclass classification.
 <br />
