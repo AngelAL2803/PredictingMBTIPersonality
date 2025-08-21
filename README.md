@@ -1,11 +1,9 @@
 <h1>Predicting MBTI Personality Types from Spotify Playlists</h1>
 
 <h2>Description</h2>
-This was a final project for a machine learning course where I got to use the skills I learned in this course to do my own machine learning project. Therefore, this project applies <b>machine learning</b> to predict <b>MBTI personality types</b> using audio features from Spotify playlists. The dataset includes ~4,000 playlists and 49 predictors, such as <b>danceability, energy, valence, and instrumentalness</b>.
+This was a final project for a machine learning course where I applied <b>supervised machine learning</b> methods to predict <b>MBTI personality types</b> from Spotify playlists. The dataset, sourced from Kaggle, contains ~4,000 playlists with 49 predictors, including <b>audio features</b> (danceability, energy, valence, instrumentalness) and categorical variables.
 
-The goal is to explore whether music preferences can serve as indicators of personality and to compare different ML approaches for multiclass classification.
-
-In the Final Project folder, there is a file named `spotify_codebook.rtf` which provides the name and descriptions for the variables in the dataset.
+The project explores whether music preferences contain meaningful signals of personality and compares different machine learning approaches for multiclass classification across 16 MBTI categories.
 <br />
 
 
@@ -14,14 +12,14 @@ In the Final Project folder, there is a file named `spotify_codebook.rtf` which 
 - <b>R (R Markdown for reporting & visualization)</b>
 - <b>RStudio</b>
 - <b>Git & GitHub for version control</b>
-- <b>Pandoc / knitr for reproducible reporting</b>
+- <b>tidymodels</b>, <b>dplyr</b>, <b>ggplot2</b>, <b>randomForest</b>, <b>xgboost</b> (R packages)
 - <b>Kaggle (dataset source)</b>
 
 <h2>Dataset</h2>
 
 - <b>Source:</b> [Spotify MBTI Playlist Dataset (Kaggle)](https://www.kaggle.com/datasets/xtrnglc/spotify-mbti-playlists)
 - <b>Size:</b> ~4,000 playlists, 49 predictors (numeric audio features & categorical variables)
-- <b>Target Variable:</b> MBTI personality type (16 classes)
+- <b>Target Variable:</b> MBTI personality type (16-class categorical outcome)
 
 <h2>Methods</h2>
 
@@ -32,28 +30,45 @@ In the Final Project folder, there is a file named `spotify_codebook.rtf` which 
 - <b>Feature Engineering</b>
   - Normalization and scaling of numeric features
   - Encoding categorical predictors
-  - Train/test splits
+  - Train/test split creation
 - <b>Machine Learning Models</b>
   - Linear regression (baseline)
-  - Ridge/Lasso/Elastic Net
+  - Ridge,Lasso,Elastic Net
   - Polynomial Regression
   - k-Nearest Neighbors (KNN)
   - Random Forest
   - Gradient Boosted Trees
 - <b>Model Evaluation</b>
-  - Accuracy vs. baseline random chance (25%)
+  - Accuracy compared to random baseline (25%)
   - Cohen's Kappa for classification agreement
   - ROC-AUC for model discrimination
-  - Confusion matrix for strengths & weaknesses across MBTI pairs
+  - Confusion matrix to assess strengths & weaknesses across MBTI function pairs
  
 <h2>Results</h2>
 
 - <b>Best Model:</b> Random Forest
 - <b>Test Accuracy:</b> ~49% (vs. 25% random baseline)
 - <b>Cohen's Kappa:</b> 0.29 (moderate agreement beyond chance)
-- <b>ROC-AUC:</b> 0.721 (multiclass macro-average)
+- <b>ROC-AUC:</b> 0.721 (macro-average across classes)
 
 While prediction is challenging due to 16 imbalanced classes, results demonstrate that <b>music data contains meaningful signals of personality</b>.
+
+<h2>Results Visualization</h2>
+
+- <b>EDA Visuals:</b> Histograms of MBTI distributions, pairwise feature correlations, and playlists mapped by feature space
+- <b>Model Diagnostics:</b> ROC curves for multiclass classification, confusion matrix heatmaps, and accuracy/Kappa comparisons across models
+- <b>Final Model Insights:</b> Random Forest feature importance revealed that features like <b>danceability</b> and <b>energy</b> contributed most to classification performance
+
+<h2>Project Structure</h2>
+
+- <b>MBTI.Rmd</b> → main analysis and modeling code
+- <b>MBTI.html</b> → full report with results and visualizations (for webpage)
+- <b>MBTI.pdf</b> → full report with results and visualizations (pdf)
+- <b>spotify_codebook.rtf</b> → dataset variable descriptions
+- <b>Data/combined_mbti_df.csv</b> → cleaned dataset used for modeling
+- <b>Data/archive/</b> → raw dataset files from Kaggle
+- <b>TunedModels.R</b> → R script saving/loading tuned models
+- <b>rf_tuned.rds, boosted_tuned.rds, knn_tuned.rds</b> → serialized tuned models
 
 <!--
  ```diff
