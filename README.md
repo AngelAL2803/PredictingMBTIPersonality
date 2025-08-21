@@ -55,9 +55,17 @@ While prediction is challenging due to 16 imbalanced classes, results demonstrat
 
 <h2>Results Visualization</h2>
 
-- <b>EDA Visuals:</b> Histograms of MBTI distributions, pairwise feature correlations, and playlists mapped by feature space
-- <b>Model Diagnostics:</b> ROC curves for multiclass classification, confusion matrix heatmaps, and accuracy/Kappa comparisons across models
-- <b>Final Model Insights:</b> Random Forest feature importance revealed that features like <b>danceability</b> and <b>energy</b> contributed most to classification performance
+- <b>EDA Visuals:</b>
+  - Histograms showed class imbalance across the 16 MBTI types (some personality types heavily underrepresented).
+  - Correlation heatmaps of audio features (e.g., energy vs. loudness) revealed meaningful clustering of variables.
+  - 2D feature space plots highlighted how playlists grouped by MBTI functions (e.g., Introversion vs. Extraversion).
+- <b>Model Diagnostics:</b>
+  - <b>Confusion matrices</b> visualized where classifiers confused similar MBTI types (e.g., NT vs. NF types).
+  - <b>ROC curves (macro-averaged)</b> illustrated discriminative ability across multiple classes.
+  - <b>Comparison bar charts</b> showed relative performance of models on accuracy and Cohen’s Kappa.
+- <b>Final Model Insights:</b>
+  - <b>Random Forest feature importance plots</b> ranked predictors like danceability, energy, and valence as most influential.
+  - Visual inspection confirmed the model captured personality-related signals embedded in musical features, even if prediction remained challenging.
 
 <h2>Project Structure</h2>
 
